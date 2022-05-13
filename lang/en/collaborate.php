@@ -36,6 +36,7 @@ $string['collaborate:view'] = 'View Collaborate';
 $string['collaboratefieldset'] = 'Custom example fieldset';
 $string['collaboratename'] = 'Name';
 $string['collaboratename_help'] = 'This is the content of the help tooltip associated with the collaboratename field.  Markdown syntax is supported.';
+$string['dev'] = 'I\'m a developer';
 $string['modulename'] = 'Collaborate';
 $string['modulename_help'] = 'Use the collaborate module for learning about modules.';
 $string['modulenameplural'] = 'Collaborates';
