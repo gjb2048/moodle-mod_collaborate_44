@@ -1,6 +1,10 @@
 Changes
 =======
 
+V404.1.2
+---------
+1. Week 2 optional task.
+
 V404.1.1
 ---------
 1. End of week 1.
