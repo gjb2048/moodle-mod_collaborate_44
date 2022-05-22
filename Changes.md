@@ -6,6 +6,7 @@ V404.1.5
 1. Week 5 task 1.
 2. Week 5 task 2 part 1.
 3. Week 5 task 2 part 2.
+4. Week 5 task 3.
 
 V404.1.4
 ---------
