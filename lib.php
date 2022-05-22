@@ -396,6 +396,7 @@ function collaborate_get_file_areas($course, $cm, $context) {
     return [
         'instructionsa' => 'Instructions for partner A',
         'instructionsb' => 'Instructions for partner B',
+        'submission' => 'Student submissions',
     ];
 }
 
