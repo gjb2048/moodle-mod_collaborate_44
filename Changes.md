@@ -4,6 +4,7 @@ Changes
 V404.1.3
 ---------
 1. Week 3 task 1.
+2. Week 3 task 2.
 
 V404.1.2
 ---------
