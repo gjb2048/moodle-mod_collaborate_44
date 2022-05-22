@@ -43,16 +43,20 @@ class view implements renderable, templatable {
     protected $collaborate;
     /** @var $id */
     protected $id;
+    /** @var $reportstab */
+    protected $reportstab;
 
     /**
      * Collaborate: Create a new view page renderable object
      *
      * @param object collaborate - instance of collaborate.
      * @param int id - course module id.
+     * @param bool reportstab - has reports tab.
      */
-    public function __construct($collaborate, $id) {
+    public function __construct($collaborate, $id, $reportstab) {
         $this->collaborate = $collaborate;
         $this->id = $id;
+        $this->reportstab = $reportstab;
     }
 
     /**
@@ -75,6 +79,16 @@ class view implements renderable, templatable {
         $b = new moodle_url('/mod/collaborate/showpage.php', ['cid' => $this->collaborate->id, 'page' => 'b']);
         $data->url_a = $a->out(false);
         $data->url_b = $b->out(false);
+
+        // Add links to reports tabs, if enabled.
+        if ($this->reportstab) {
+            $data->reports = $this->reportstab;
+            $reports = new moodle_url('/mod/collaborate/reports.php',
+                ['cid' => $this->collaborate->id]);
+            $view = new moodle_url('/mod/collaborate/view.php', ['id' => $this->id]);
+            $data->url_reports = $reports->out(false);
+            $data->url_view = $view->out(false);
+        }
 
         return $data;
     }
