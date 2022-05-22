@@ -26,6 +26,7 @@
 
 namespace mod_collaborate\output;
 
+use moodle_url;
 use renderable;
 use renderer_base;
 use templatable;
@@ -68,6 +69,12 @@ class view implements renderable, templatable {
         // Moodle handles processing of std intro field.
         $data->body = format_module_intro('collaborate', $this->collaborate, $this->id);
         $data->extra = get_string('dev', 'mod_collaborate');
+
+        // Set up the user page URLs.
+        $a = new moodle_url('/mod/collaborate/showpage.php', ['cid' => $this->collaborate->id, 'page' => 'a']);
+        $b = new moodle_url('/mod/collaborate/showpage.php', ['cid' => $this->collaborate->id, 'page' => 'b']);
+        $data->url_a = $a->out(false);
+        $data->url_b = $b->out(false);
 
         return $data;
     }
