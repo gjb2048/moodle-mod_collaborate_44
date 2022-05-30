@@ -7,6 +7,7 @@ V404.1.7
 2. Week 7 Navigation and Name changer.
 3. Week 7 task 1.
 4. Week 7 task 2.
+5. Week 7 task 3.
 
 V404.1.6
 ---------
