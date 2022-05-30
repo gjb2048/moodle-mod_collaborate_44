@@ -1,6 +1,10 @@
 Changes
 =======
 
+V404.1.6
+---------
+1. Week 6 Something I noticed.
+
 V404.1.5
 ---------
 1. Week 5 task 1.
