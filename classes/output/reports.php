@@ -103,7 +103,13 @@ class reports implements renderable, templatable {
             $user = $DB->get_record('user', ['id' => $record->userid], '*', MUST_EXIST);
             $data['firstname'] = $user->firstname;
             $data['lastname'] = $user->lastname;
-            $data['grade'] = $record->grade;
+            $data['grade'] = (is_null($record->grade)) ? '-' : $record->grade;
+
+            // Add a URL to the grading page.
+            $gradinglink = new \moodle_url('/mod/collaborate/grading.php', ['cid' => $this->collaborate->id, 'sid' => $record->id]);
+            $data['gradelink'] = $gradinglink->out(false);
+            $data['gradetext'] = get_string('grade', 'core_grades');
+
             $submissions[] = $data;
         }
 
@@ -123,6 +129,7 @@ class reports implements renderable, templatable {
             get_string('firstname', 'core'),
             get_string('lastname', 'core'),
             get_string('grade', 'core_grades'),
+            '',
         ];
     }
 }
