@@ -15,51 +15,48 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Prints a particular instance of collaborate
+ * Prints a particular instance of collaborate.
  *
  * @package    mod_collaborate
  * @copyright  202 Richard Jones richardnz@outlook.com
- * @copyright  2022 G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}.
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  * @see https://github.com/moodlehq/moodle-mod_simplemod
  * @see https://github.com/justinhunt/moodle-mod_simplemod
- * @see https://github.com/richardjonesnz/moodle-mod_simplemod
- * @see https://github.com/gjb2048/moodle-mod_simplemod
  */
 
 namespace mod_collaborate\event;
 
 /**
- * Prints a particular instance of collaborate.
+ * Prints a particular instance of collaborate class.
  */
-class page_viewed extends \core\event\base {
+class submission_submitted extends \core\event\base {
     /**
-     * Init method.
+     * Init.
      */
     protected function init() {
-        $this->data['crud'] = 'r';
+        $this->data['objecttable'] = 'collaborate_submissions';
+        $this->data['crud'] = 'c';
         $this->data['edulevel'] = self::LEVEL_PARTICIPATING;
-        $this->data['objecttable'] = 'collaborate';
     }
 
     /**
-     * Returns the name.
+     * Get name.
      *
-     * @return string
+     * @return string Name.
      */
     public static function get_name() {
-        return get_string('pageviewed', 'mod_collaborate');
+        return get_string('submission_submitted', 'mod_collaborate');
     }
 
     /**
      * Returns non-localised event description with id's for admin use only.
      *
-     * @return string
+     * @return string Description.
      */
     public function get_description() {
         return "The user with id '$this->userid' has ".
-                "viewed a page with the id '$this->objectid' ".
-                "in the Collaborate activity with course ".
-                "module id '$this->contextinstanceid'.";
+               "made a submission with the id '$this->objectid' ".
+               "in the Collaborate activity with course ".
+               "module id '$this->contextinstanceid'.";
     }
 }
