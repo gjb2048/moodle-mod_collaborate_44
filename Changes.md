@@ -7,6 +7,7 @@ V404.1.6
 2. Slight improvement to 'Something I noticed'.
 3. Week 6 task 1.
 4. Week 6 task 2.
+5. Week 6 task 3.
 
 V404.1.5
 ---------
