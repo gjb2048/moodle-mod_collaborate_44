@@ -4,6 +4,8 @@ Changes
 V404.1.8
 ---------
 1. Week 8 backup.
+2. Week 8 collaborate_rescale_activity_grades.
+3. Week 8 Delete the area files on module deletion.
 
 V404.1.7
 ---------
