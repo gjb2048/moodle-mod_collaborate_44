@@ -25,7 +25,7 @@
  * @see https://github.com/justinhunt/moodle-mod_simplemod
  * @see https://github.com/gjb2048/moodle-mod_simplemod
  */
-require('../../config.php');
+require_once('../../config.php');
 $id = required_param('id', PARAM_INT);// Course module ID.
 
 // Item number may be != 0 for activities that allow more than one grade per user.
