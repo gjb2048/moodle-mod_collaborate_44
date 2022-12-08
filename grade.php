@@ -19,7 +19,7 @@
  *
  * @package    mod_collaborate
  * @copyright  2019 Richard Jones richardnz@outlook.com
- * @copyright  2022 G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}. * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  2022 G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @see https://github.com/moodlehq/moodle-mod_simplemod
  * @see https://github.com/justinhunt/moodle-mod_simplemod
@@ -31,6 +31,8 @@ $id = required_param('id', PARAM_INT);// Course module ID.
 // Item number may be != 0 for activities that allow more than one grade per user.
 $itemnumber = optional_param('itemnumber', 0, PARAM_INT);
 $userid = optional_param('userid', 0, PARAM_INT); // Graded user ID (optional).
+
+require_login();
 
 // In the simplest case just redirect to the view page.
 redirect('view.php?id='.$id);
