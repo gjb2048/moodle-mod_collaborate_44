@@ -123,7 +123,7 @@ function collaborate_refresh_events($courseid = 0) {
             return true;
         }
     } else {
-        if (!$collaborates = $DB->get_records('collaborate', array('course' => $courseid))) {
+        if (!$collaborates = $DB->get_records('collaborate', ['course' => $courseid])) {
             return true;
         }
     }
@@ -159,12 +159,12 @@ function collaborate_update_events($collaborate, $override = null) {
 function collaborate_delete_instance($id) {
     global $DB;
 
-    if (! $collaborate = $DB->get_record('collaborate', array('id' => $id))) {
+    if (! $collaborate = $DB->get_record('collaborate', ['id' => $id])) {
         return false;
     }
 
     // Delete any dependent records here.
-    $DB->delete_records('collaborate', array('id' => $collaborate->id));
+    $DB->delete_records('collaborate', ['id' => $collaborate->id]);
 
     return true;
 }
@@ -273,7 +273,7 @@ function collaborate_cron () {
  * @return array
  */
 function collaborate_get_extra_capabilities() {
-    return array();
+    return [];
 }
 
 /* Gradebook API */
@@ -289,7 +289,7 @@ function collaborate_get_extra_capabilities() {
  */
 function collaborate_scale_used($collaborateid, $scaleid) {
     global $DB;
-    if ($scaleid && $DB->record_exists('collaborate', array('id' => $simplemodid, 'grade' => -$scaleid))) {
+    if ($scaleid && $DB->record_exists('collaborate', ['id' => $simplemodid, 'grade' => -$scaleid])) {
         return true;
     } else {
         return false;
@@ -305,7 +305,7 @@ function collaborate_scale_used($collaborateid, $scaleid) {
  */
 function collaborate_scale_used_anywhere($scaleid) {
     global $DB;
-    if ($scaleid && $DB->record_exists('collaborate', array('grade' => -$scaleid))) {
+    if ($scaleid && $DB->record_exists('collaborate', ['grade' => -$scaleid])) {
         return true;
     } else {
         return false;
@@ -322,7 +322,7 @@ function collaborate_scale_used_anywhere($scaleid) {
 function collaborate_grade_item_update(stdClass $collaborate) {
     global $CFG;
     require_once($CFG->libdir.'/gradelib.php');
-    $item = array();
+    $item = [];
     $item['itemname'] = clean_param($collaborate->name, PARAM_NOTAGS);
     $item['gradetype'] = GRADE_TYPE_VALUE;
     if ($collaborate->grade > 0) {
@@ -349,7 +349,7 @@ function collaborate_grade_item_delete($collaborate) {
     global $CFG;
     require_once($CFG->libdir.'/gradelib.php');
     return grade_update('mod/collaborate', $collaborate->course, 'mod', 'collaborate',
-        $collaborate->id, 0, null, array('deleted' => 1));
+        $collaborate->id, 0, null, ['deleted' => 1]);
 }
 /**
  * Update collaborate grades in the gradebook
@@ -363,7 +363,7 @@ function collaborate_update_grades(stdClass $collaborate, $userid = 0) {
     global $CFG, $DB;
     require_once($CFG->libdir.'/gradelib.php');
     // Populate array of grade objects indexed by userid.
-    $grades = array();
+    $grades = [];
     grade_update('mod/collaborate', $collaborate->course, 'mod', 'collaborate', $collaborate->id, 0, $grades);
 }
 
@@ -381,7 +381,7 @@ function collaborate_update_grades(stdClass $collaborate, $userid = 0) {
  * @return array of [(string)filearea] => (string)description
  */
 function collaborate_get_file_areas($course, $cm, $context) {
-    return array();
+    return [];
 }
 
 /**
@@ -419,7 +419,7 @@ function collaborate_get_file_info($browser, $areas, $course, $cm, $context, $fi
  * @param bool $forcedownload whether or not force download
  * @param array $options additional options affecting the file serving
  */
-function collaborate_pluginfile($course, $cm, $context, $filearea, array $args, $forcedownload, array $options=array()) {
+function collaborate_pluginfile($course, $cm, $context, $filearea, array $args, $forcedownload, array $options=[]) {
     global $DB, $CFG;
 
     if ($context->contextlevel != CONTEXT_MODULE) {

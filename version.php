@@ -32,6 +32,6 @@ defined('MOODLE_INTERNAL') || die();
 $plugin->component = 'mod_collaborate';
 $plugin->version = 2024051800;
 $plugin->requires = 2024042200.00; // 4.4 (Build: 20240422).
-$plugin->supported = array(404, 404);
+$plugin->supported = [404, 404];
 $plugin->release = '404.1.0';
 $plugin->maturity = MATURITY_STABLE;
