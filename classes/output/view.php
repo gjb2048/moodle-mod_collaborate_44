@@ -17,9 +17,9 @@
 /**
  * Prints a particular instance of collaborate
  *
- * @package    mod_collaborate
- * @copyright  202 Richard Jones richardnz@outlook.com
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package mod_collaborate
+ * @copyright 202 Richard Jones richardnz@outlook.com
+ * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @see https://github.com/moodlehq/moodle-mod_simplemod
  * @see https://github.com/justinhunt/moodle-mod_simplemod
  */
@@ -32,18 +32,23 @@ use templatable;
 use stdClass;
 
 /**
- * Collaborate: Create a new view page renderable object
+ * Collaborate: View page renderable object
  *
- * @param object collaborate - instance of collaborate.
- * @param int id - course module id.
  * @copyright  2020 Richard Jones <richardnz@outlook.com>
  */
-
 class view implements renderable, templatable {
 
+    /** @var $collaborate */
     protected $collaborate;
+    /** @var $id */
     protected $id;
 
+    /**
+     * Collaborate: Create a new view page renderable object
+     *
+     * @param object collaborate - instance of collaborate.
+     * @param int id - course module id.
+     */
     public function __construct($collaborate, $id) {
         $this->collaborate = $collaborate;
         $this->id = $id;

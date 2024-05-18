@@ -444,7 +444,7 @@ function collaborate_pluginfile($course, $cm, $context, $filearea, array $args, 
  * @param cm_info $cm course module information
  */
 function collaborate_extend_navigation(navigation_node $navref, stdClass $course, stdClass $module, cm_info $cm) {
-    // TODO Delete this function and its docblock, or implement it.
+    // Todo: Delete this function and its docblock, or implement it.
 }
 
 /**
@@ -457,5 +457,5 @@ function collaborate_extend_navigation(navigation_node $navref, stdClass $course
  * @param navigation_node $collaboratenode collaborate administration node
  */
 function collaborate_extend_settings_navigation(settings_navigation $settingsnav, navigation_node $collaboratenode=null) {
-    // TODO Delete this function and its docblock, or implement it.
+    // Todo: Delete this function and its docblock, or implement it.
 }
