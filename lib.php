@@ -74,7 +74,7 @@ function collaborate_supports($feature) {
  * @param mod_collaborate_mod_form $mform The form instance itself (if needed)
  * @return int The id of the newly inserted collaborate record
  */
-function collaborate_add_instance(stdClass $collaborate, mod_collaborate_mod_form $mform = null) {
+function collaborate_add_instance(stdClass $collaborate, mod_collaborate_mod_form $mform) {
     global $DB;
 
     $collaborate->timecreated = time();
@@ -94,7 +94,7 @@ function collaborate_add_instance(stdClass $collaborate, mod_collaborate_mod_for
  * @param mod_collaborate_mod_form $mform The form instance itself (if needed)
  * @return boolean Success/Fail
  */
-function collaborate_update_instance(stdClass $collaborate, mod_collaborate_mod_form $mform = null) {
+function collaborate_update_instance(stdClass $collaborate, mod_collaborate_mod_form $mform) {
     global $DB;
 
     $collaborate->timemodified = time();
@@ -456,6 +456,6 @@ function collaborate_extend_navigation(navigation_node $navref, stdClass $course
  * @param settings_navigation $settingsnav complete settings navigation tree
  * @param navigation_node $collaboratenode collaborate administration node
  */
-function collaborate_extend_settings_navigation(settings_navigation $settingsnav, navigation_node $collaboratenode=null) {
+function collaborate_extend_settings_navigation(settings_navigation $settingsnav, navigation_node $collaboratenode) {
     // Todo: Delete this function and its docblock, or implement it.
 }
