@@ -8,6 +8,7 @@ V404.1.6
 3. Week 6 task 1.
 4. Week 6 task 2.
 5. Week 6 task 3.
+6. Fix missing Collaborate id for the grade when creating a new instance - related to week 6 task 3.
 
 V404.1.5
 ---------
